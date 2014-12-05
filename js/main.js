@@ -1,9 +1,14 @@
 $(document).ready(function() {
   var theProduct, equation, multiplicand, multiplier, uniqueProducts;
-  var multipliers = new Array(0,1,2,3,4,5,6,7,8,9,10);
+  var multipliers = [];
   var multipliersDone = [];
 
   function initialize() {
+    multipliers.push(0,1,2,3,4,5,6,7,8,9,10);
+    setUp();
+  }
+
+  function setUp() {
     multiplicand = 4;
     multiplier = multipliers.shuffle().pop();
     multipliersDone.push(multiplier);
@@ -48,7 +53,9 @@ $(document).ready(function() {
   };
 
   $('.square span').click(function() {
-    console.log($(this).html());
+    if($(this).html() == theProduct) {
+      initialize();
+    }
   });
 
   // Start game
