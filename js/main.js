@@ -15,8 +15,12 @@ $(document).ready(function() {
     equation = multiplicand + ' &middot; ' + multiplier;
     theProduct = multiplicand * multiplier;
 
+    // Display the equation
     $('.exercise').html(equation);
+
+    // Get products for the buttons
     uniqueProducts = getUniqueProducts(3);
+    // Add the correct product
     uniqueProducts.push(theProduct);
     uniqueProducts.shuffle();
 
