@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gångertabellen</title>
+  <meta charset="UTF-8">
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <style type="text/css">
+  h1 {
+    text-align: center;
+  }
+  .wrapper {
+    width: 210px;
+    margin: 0 auto;
+  }
+  .square {
+    float: left;
+    background-color: #66f;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    display: table;
+  }
+  .square span {
+    height: 100px;
+    width: 100px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .exercise, .square span {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .sq1, .sq3 {
+    margin-right: 0;
+  }
+  </style>
+</head>
+<body>
+  <h1>Öva på gångertabellen</h1>
+  <div class="wrapper">
+    <div class="exercise"></div>
+    <div class="square sq0"><span>0</span></div>
+    <div class="square sq1"><span>1</span></div>
+    <div class="square sq2"><span>2</span></div>
+    <div class="square sq3"><span>3</span></div>
+  </div>
+</body>
+</html>
