@@ -56,7 +56,7 @@ $(document).ready(function() {
     result += hundredth.slice(-2);
 
     $('.result').html(result);
-    $('h1').html('Game Over!');
+    $('.header').html('Game Over!');
   }
 
   function calculate(multiplier, multiplicand) {

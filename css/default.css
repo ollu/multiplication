@@ -1,0 +1,29 @@
+h1 {
+  margin-top: 25px;
+}
+.header {
+  text-transform: uppercase;
+}
+.exercise, .result {
+  margin-right: 10px;
+}
+.exercise {
+  padding: 20px 0;
+}
+.wrapper {
+  width: 270px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.btn {
+  float: left;
+  height: 120px;
+  width: 120px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: bold;
+}
+.btn-1, .btn-3 {
+  margin-right: 0;
+}
