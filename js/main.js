@@ -35,7 +35,7 @@ $(document).ready(function() {
     uniqueProducts.push(theProduct);
     uniqueProducts.shuffle();
 
-    $('.square span').each(function(index) {
+    $('button').each(function(index) {
       $(this).html(uniqueProducts.pop())
     });
   }
@@ -104,7 +104,7 @@ $(document).ready(function() {
     return this;
   };
 
-  $('.square span').click(function() {
+  $('button').click(function() {
     if($(this).html() == theProduct) {
       newGame();
     }
