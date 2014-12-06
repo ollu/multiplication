@@ -22,7 +22,7 @@ $(document).ready(function() {
     $('.exercise').html(equation);
 
     // Get products for the buttons
-    uniqueProducts = getUniqueProducts(3);
+    uniqueProducts = generateUniqueProducts(3);
 
     // Get correct answer
     theProduct = calculate(multiplicand, multiplier);
@@ -45,7 +45,12 @@ $(document).ready(function() {
     return product;
   }
 
-  function getUniqueProducts(length) {
+  /**
+   * Generate products to be placed on the buttons
+   * @param  int length How many unigue products to produce
+   * @return array        Array containing unique products
+   */
+  function generateUniqueProducts(length) {
     var products = [];
     var product;
     var numbers = [0,1,2,3,4,5,6,7,8,9,10];
