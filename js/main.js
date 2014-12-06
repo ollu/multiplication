@@ -1,8 +1,12 @@
 $(document).ready(function() {
-  var theProduct, equation, multiplicand, multiplier, uniqueProducts;
+  var exerciseStart, theProduct, equation, multiplicand,
+  multiplier, uniqueProducts;
   var multipliers = [0,1,2,3,4,5,6,7,8,9,10];
 
   function initialize() {
+    exerciseStart = new Date();
+    exerciseStart = exerciseStart.getTime();
+
     newGame();
   }
 
@@ -37,6 +41,21 @@ $(document).ready(function() {
   }
 
   function gameOver() {
+    var exerciseEnd = new Date();
+    exerciseEnd = exerciseEnd.getTime();
+
+    var d = exerciseEnd - exerciseStart;
+    d = new Date(d);
+
+    var minutes = '0' + d.getUTCMinutes();
+    var seconds = '0' + d.getUTCSeconds();
+    var hundredth = '0' + Math.floor(d.getUTCMilliseconds() / 10);
+
+    var result = minutes.slice(-2) + ':';
+    result += seconds.slice(-2) + ':';
+    result += hundredth.slice(-2);
+
+    $('.result').html(result);
     $('h1').html('Game Over!');
   }
 
