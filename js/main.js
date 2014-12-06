@@ -1,25 +1,33 @@
 $(document).ready(function() {
   var theProduct, equation, multiplicand, multiplier, uniqueProducts;
   var multipliers = [];
-  var multipliersDone = [];
 
   function initialize() {
     multipliers.push(0,1,2,3,4,5,6,7,8,9,10);
-    setUp();
+    newGame();
   }
 
-  function setUp() {
+  function newGame() {
     multiplicand = 4;
-    multiplier = multipliers.shuffle().pop();
-    multipliersDone.push(multiplier);
+    console.log(multipliers.length);
+    if(multipliers.length) {
+      multiplier = multipliers.shuffle().pop();
+    }
+    else {
+      gameOver();
+    }
+
     equation = multiplicand + ' &middot; ' + multiplier;
-    theProduct = multiplicand * multiplier;
 
     // Display the equation
     $('.exercise').html(equation);
 
     // Get products for the buttons
     uniqueProducts = getUniqueProducts(3);
+
+    // Get correct answer
+    theProduct = multiplicand * multiplier;
+
     // Add the correct product
     uniqueProducts.push(theProduct);
     uniqueProducts.shuffle();
@@ -27,6 +35,10 @@ $(document).ready(function() {
     $('.square span').each(function(index) {
       $(this).html(uniqueProducts.pop())
     });
+  }
+
+  function gameOver() {
+    $('h1').html('Game Over!');
   }
 
   function getUniqueProducts(length) {
@@ -58,7 +70,7 @@ $(document).ready(function() {
 
   $('.square span').click(function() {
     if($(this).html() == theProduct) {
-      initialize();
+      newGame();
     }
   });
 
