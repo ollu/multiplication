@@ -1,15 +1,14 @@
 $(document).ready(function() {
   var theProduct, equation, multiplicand, multiplier, uniqueProducts;
-  var multipliers = [];
+  var multipliers = [0,1,2,3,4,5,6,7,8,9,10];
 
   function initialize() {
-    multipliers.push(0,1,2,3,4,5,6,7,8,9,10);
     newGame();
   }
 
   function newGame() {
     multiplicand = 4;
-    console.log(multipliers.length);
+
     if(multipliers.length) {
       multiplier = multipliers.shuffle().pop();
     }
@@ -26,7 +25,7 @@ $(document).ready(function() {
     uniqueProducts = getUniqueProducts(3);
 
     // Get correct answer
-    theProduct = multiplicand * multiplier;
+    theProduct = calculate(multiplicand, multiplier);
 
     // Add the correct product
     uniqueProducts.push(theProduct);
@@ -41,13 +40,26 @@ $(document).ready(function() {
     $('h1').html('Game Over!');
   }
 
+  function calculate(multiplier, multiplicand) {
+    var product = multiplier * multiplicand;
+    return product;
+  }
+
   function getUniqueProducts(length) {
-    var arr = [];
+    var products = [];
+    var product;
+    var numbers = [0,1,2,3,4,5,6,7,8,9,10];
+
+    // Remove current multiplier to avoid duplicate products
+    numbers.splice(multiplier, 1);
+    numbers.shuffle();
+
     for(var i = 0; i < length; i++) {
-      arr.push(multipliers.pop() * multiplicand);
+      product = calculate(numbers.pop(), multiplicand);
+      products.push(product);
     }
 
-    return arr;
+    return products;
   }
 
   /*
