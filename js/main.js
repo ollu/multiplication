@@ -128,6 +128,11 @@ $(document).ready(function() {
     if($(this).html() == theProduct) {
       newGame();
     }
+    else {
+      if(multipliers.indexOf(multiplier) === -1) {
+        multipliers.push(multiplier);
+      }
+    }
   });
 
   // Start game
