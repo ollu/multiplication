@@ -125,12 +125,14 @@ $(document).ready(function() {
   };
 
   $('button').click(function() {
-    if($(this).html() == theProduct) {
-      newGame();
-    }
-    else {
-      if(multipliers.indexOf(multiplier) === -1) {
-        multipliers.push(multiplier);
+    if(!finished) {
+      if($(this).html() == theProduct) {
+        newGame();
+      }
+      else {
+        if(multipliers.indexOf(multiplier) === -1) {
+          multipliers.push(multiplier);
+        }
       }
     }
   });
