@@ -1,17 +1,34 @@
 $(document).ready(function() {
-  var exerciseStart, theProduct, equation, multiplicand,
+  var exerciseStart, theProduct, equation, gameOver, multiplicand,
   multiplier, uniqueProducts;
   var multipliers = [0,1,2,3,4,5,6,7,8,9,10];
 
   function initialize() {
+    $('h1').html("Välj 1-9");
+    for (var i = 1; i <= 9; i++) {
+      var button = '<button type="button"';
+      button += 'class="btn btn-default choose">';
+      button +=  + i + '</button>';
+      $('.startup-ui').append(button);
+    };
+
+    $('.choose').click(function(index) {
+      var val = $(this).html();
+      initGame(val);
+    });
+  }
+
+  function initGame(multip) {
+    $(".startup-ui").addClass("hidden");
+    $(".play-ui").removeClass("hidden");
+    multiplicand = multip;
     exerciseStart = new Date();
     exerciseStart = exerciseStart.getTime();
-
+    finished = false;
     newGame();
   }
 
   function newGame() {
-    multiplicand = 4;
 
     if(multipliers.length) {
       multiplier = multipliers.shuffle().pop();
@@ -23,7 +40,9 @@ $(document).ready(function() {
     equation = multiplicand + ' &middot; ' + multiplier;
 
     // Display the equation
-    $('.exercise').html(equation);
+    if(!finished) {
+      $('.exercise').html(equation);
+    }
 
     // Get products for the buttons
     uniqueProducts = generateUniqueProducts(3);
@@ -35,7 +54,7 @@ $(document).ready(function() {
     uniqueProducts.push(theProduct);
     uniqueProducts.shuffle();
 
-    $('button').each(function(index) {
+    $('.play-ui button').each(function(index) {
       $(this).html(uniqueProducts.pop())
     });
   }
@@ -56,7 +75,8 @@ $(document).ready(function() {
     result += hundredth.slice(-2);
 
     $('.result').html(result);
-    $('.header').html('Game Over!');
+    $('.exercise').html('Game Over!');
+    finished = true;
   }
 
   function calculate(multiplier, multiplicand) {
