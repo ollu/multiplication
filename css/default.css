@@ -11,9 +11,10 @@ h1 {
   padding: 20px 0;
 }
 .wrapper {
-  width: 270px;
+  width: 400px;
   margin: 0 auto;
   margin-top: 20px;
+  position: relative;
 }
 .btn {
   float: left;
@@ -24,6 +25,20 @@ h1 {
   font-size: 40px;
   font-weight: bold;
 }
-.btn-1, .btn-3 {
+.btn-0 {
+  margin-right: 140px;
+}
+.btn-1 {
+  margin: 0 0 140px 0;
+}
+.btn-3 {
+  position: absolute;
+  top: 130px;
+  left: 130px;
+}
+.btn-4 {
+  float: right;
+}
+.btn:nth-child(3n) {
   margin-right: 0;
 }
