@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var exerciseStart, theProduct, equation, gameOver, multiplicand,
-  multiplier, uniqueProducts;
+  multiplier, timer, uniqueProducts;
   var multipliers = [0,1,2,3,4,5,6,7,8,9,10];
 
   function initialize() {
@@ -25,6 +25,7 @@ $(document).ready(function() {
     exerciseStart = new Date();
     exerciseStart = exerciseStart.getTime();
     finished = false;
+    timer = setInterval(function(){ startTimer() }, 10);
     newGame();
   }
 
@@ -60,6 +61,17 @@ $(document).ready(function() {
   }
 
   function gameOver() {
+    stopTimer();
+    $('.exercise').html('Game Over!');
+    finished = true;
+  }
+
+  function calculate(multiplier, multiplicand) {
+    var product = multiplier * multiplicand;
+    return product;
+  }
+
+  function startTimer() {
     var exerciseEnd = new Date();
     exerciseEnd = exerciseEnd.getTime();
 
@@ -75,13 +87,10 @@ $(document).ready(function() {
     result += hundredth.slice(-2);
 
     $('.result').html(result);
-    $('.exercise').html('Game Over!');
-    finished = true;
   }
 
-  function calculate(multiplier, multiplicand) {
-    var product = multiplier * multiplicand;
-    return product;
+  function stopTimer() {
+    clearInterval(timer);
   }
 
   /**
