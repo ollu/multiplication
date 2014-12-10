@@ -1,3 +1,13 @@
+<?php
+  $images = array();
+  foreach (new DirectoryIterator('images') as $fileInfo) {
+    if($fileInfo->isDot()) continue;
+    $images[] = $fileInfo->getFilename();
+  }
+  $image = $images[array_rand($images, 1)];
+  $background = 'background="images/' . $image . '"';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +17,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/default.css" rel="stylesheet">
 </head>
-<body>
+<body <?php echo $background; ?>>
 
 <div id="play-again" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -24,7 +34,7 @@
   </div>
 </div>
 
-  <h4 class="text-center header">Öva på gångertabellen</h4>
+  <h4 class="text-center header bg-danger">Öva på gångertabellen</h4>
   <h1 class="text-center exercise bg-danger"></h1>
   <div class="wrapper startup-ui">
     <button type="button" class="big btn btn-default choose">1</button>
