@@ -61,6 +61,7 @@ $(document).ready(function() {
   }
 
   function gameOver() {
+    showModal();
     stopTimer();
     $('.exercise').html('Game Over!');
     finished = true;
@@ -144,16 +145,19 @@ $(document).ready(function() {
     return this;
   };
 
+  // Start on same level again button
   $('#same-again').click(function() {
     hideModal();
     initGame(multiplier);
   });
 
+  // Start new game button
   $('#new-game').click(function() {
     hideModal();
     initialize();
   });
 
+  // Logic for answer buttons
   $('button').click(function() {
     if(!finished) {
       if($(this).html() == theProduct) {
