@@ -5,17 +5,8 @@ $(document).ready(function() {
 
   function initialize() {
     $('h1').html("Välj 1-9");
-    for (var i = 1; i <= 9; i++) {
-      var button = '<button type="button"';
-      button += 'class="btn btn-default choose">';
-      button +=  + i + '</button>';
-      $('.startup-ui').append(button);
-    };
-
-    $('.choose').click(function(index) {
-      var val = $(this).html();
-      initGame(val);
-    });
+    $(".play-ui").addClass("hidden");
+    $(".startup-ui").removeClass("hidden");
   }
 
   function initGame(multip) {
@@ -145,6 +136,11 @@ $(document).ready(function() {
     return this;
   };
 
+  $('.choose').click(function(index) {
+    var val = $(this).html();
+    initGame(val);
+  });
+
   // Start on same level again button
   $('#same-again').click(function() {
     hideModal();
@@ -154,6 +150,8 @@ $(document).ready(function() {
   // Start new game button
   $('#new-game').click(function() {
     hideModal();
+    multipliers = [0,1,2,3,4,5,6,7,8,9,10];
+    finished = false;
     initialize();
   });
 
