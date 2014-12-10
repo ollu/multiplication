@@ -10,13 +10,16 @@ h1 {
 .exercise {
   padding: 20px 0;
 }
+.modal .result {
+  margin:0;
+}
 .wrapper {
   width: 400px;
   margin: 0 auto;
   margin-top: 20px;
   position: relative;
 }
-.btn {
+.big.btn {
   float: left;
   height: 120px;
   width: 120px;
@@ -25,20 +28,20 @@ h1 {
   font-size: 40px;
   font-weight: bold;
 }
-.btn-0 {
+.big.btn-0 {
   margin-right: 140px;
 }
-.btn-1 {
+.big.btn-1 {
   margin: 0 0 140px 0;
 }
-.btn-3 {
+.big.btn-3 {
   position: absolute;
   top: 130px;
   left: 130px;
 }
-.btn-4 {
+.big.btn-4 {
   float: right;
 }
-.btn:nth-child(3n) {
+.big.btn:nth-child(3n) {
   margin-right: 0;
 }
