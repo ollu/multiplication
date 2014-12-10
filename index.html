@@ -15,10 +15,10 @@
       <div class="modal-header">
         <h4 class="modal-title">Snyggt jobbat!</h4>
       </div>
-      <div class="modal-body">Din tid blev: <span class="result">00:00:00</span></div>
+      <div class="modal-body"><strong>Din tid blev:</strong> <span class="result">00:00:00</span></div>
       <div class="modal-footer">
-        <button type="button" id="same-again" class="btn btn-primary">Spela igen?</button>
-        <button type="button" id="new-game" class="btn btn-info">Välj ny</button>
+        <button type="button" id="restart-game" class="btn btn-primary">Samma en gång till?</button>
+        <button type="button" id="new-game" class="btn btn-info">Välj ny gångertabell</button>
       </div>
     </div>
   </div>
@@ -26,7 +26,17 @@
 
   <h4 class="text-center header">Öva på gångertabellen</h4>
   <h1 class="text-center exercise bg-danger"></h1>
-  <div class="wrapper startup-ui"></div>
+  <div class="wrapper startup-ui">
+    <button type="button" class="big btn btn-default choose">1</button>
+    <button type="button" class="big btn btn-default choose">2</button>
+    <button type="button" class="big btn btn-default choose">3</button>
+    <button type="button" class="big btn btn-default choose">4</button>
+    <button type="button" class="big btn btn-default choose">5</button>
+    <button type="button" class="big btn btn-default choose">6</button>
+    <button type="button" class="big btn btn-default choose">7</button>
+    <button type="button" class="big btn btn-default choose">8</button>
+    <button type="button" class="big btn btn-default choose">9</button>
+  </div>
   <div class="wrapper clearfix play-ui hidden">
     <button type="button" class="big btn btn-primary btn-0">0</button>
     <button type="button" class="big btn btn-primary btn-1">1</button>
@@ -34,7 +44,7 @@
     <button type="button" class="big btn btn-primary btn-3">3</button>
     <button type="button" class="big btn btn-primary btn-4">4</button>
   </div>
-  <div class="text-center result bg-success play-ui hidden">00:00:00</div>
+  <div class="text-center result bg-success play-ui">00:00:00</div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>

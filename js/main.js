@@ -142,7 +142,7 @@ $(document).ready(function() {
   });
 
   // Start on same level again button
-  $('#same-again').click(function() {
+  $('#restart-game').click(function() {
     hideModal();
     initGame(multiplier);
   });
