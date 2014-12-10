@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var exerciseStart, theProduct, equation, gameOver, multiplicand,
   multiplier, timer, uniqueProducts;
-  var multipliers = [0,1,2,3,4,5,6,7,8,9,10];
+  var multipliers;
 
   function initialize() {
     $('h1').html("Välj 1-9");
@@ -15,7 +15,7 @@ $(document).ready(function() {
     multiplicand = multip;
     exerciseStart = new Date();
     exerciseStart = exerciseStart.getTime();
-    finished = false;
+    resetGame();
     timer = setInterval(function(){ startTimer() }, 10);
     newGame();
   }
@@ -37,7 +37,7 @@ $(document).ready(function() {
     }
 
     // Get products for the buttons
-    uniqueProducts = generateUniqueProducts(3);
+    uniqueProducts = generateUniqueProducts(4);
 
     // Get correct answer
     theProduct = calculate(multiplicand, multiplier);
@@ -79,6 +79,11 @@ $(document).ready(function() {
     result += hundredth.slice(-2);
 
     $('.result').html(result);
+  }
+
+  function resetGame() {
+    multipliers = [0,1,2,3,4,5,6,7,8,9,10];
+    finished = false;
   }
 
   function stopTimer() {
@@ -144,14 +149,13 @@ $(document).ready(function() {
   // Start on same level again button
   $('#restart-game').click(function() {
     hideModal();
-    initGame(multiplier);
+    resetGame();
+    newGame();
   });
 
   // Start new game button
   $('#new-game').click(function() {
     hideModal();
-    multipliers = [0,1,2,3,4,5,6,7,8,9,10];
-    finished = false;
     initialize();
   });
 
