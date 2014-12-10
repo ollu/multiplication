@@ -93,6 +93,17 @@ $(document).ready(function() {
     clearInterval(timer);
   }
 
+  function showModal() {
+    $('#play-again').modal({
+      backdrop: 'static',
+      keyboard: false
+    });
+  }
+
+  function hideModal() {
+    $('#play-again').modal('hide');
+  }
+
   /**
    * Generate products to be placed on the buttons
    * @param  int length How many unigue products to produce
