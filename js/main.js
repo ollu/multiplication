@@ -5,13 +5,26 @@ $(document).ready(function() {
 
   function initialize() {
     $('h1').html("Välj 1-9");
-    $(".play-ui").addClass("hidden");
-    $(".startup-ui").removeClass("hidden");
+
+    if (!$(".play-ui").hasClass("hidden")) {
+      $(".play-ui").addClass("hidden");
+    }
+
+    if ($(".startup-ui").hasClass("hidden")) {
+      $(".startup-ui").removeClass("hidden");
+    }
+
   }
 
   function initGame(multip) {
-    $(".startup-ui").addClass("hidden");
-    $(".play-ui").removeClass("hidden");
+    if (!$(".startup-ui").hasClass("hidden")) {
+      $(".startup-ui").addClass("hidden");
+    }
+
+    if ($(".play-ui").hasClass("hidden")) {
+      $(".play-ui").removeClass("hidden");
+    }
+
     multiplicand = multip;
     exerciseStart = new Date();
     exerciseStart = exerciseStart.getTime();
@@ -150,7 +163,7 @@ $(document).ready(function() {
   $('#restart-game').click(function() {
     hideModal();
     resetGame();
-    newGame();
+    initGame(multiplicand);
   });
 
   // Start new game button
