@@ -144,6 +144,16 @@ $(document).ready(function() {
     return this;
   };
 
+  $('#same-again').click(function() {
+    hideModal();
+    initGame(multiplier);
+  });
+
+  $('#new-game').click(function() {
+    hideModal();
+    initialize();
+  });
+
   $('button').click(function() {
     if(!finished) {
       if($(this).html() == theProduct) {
