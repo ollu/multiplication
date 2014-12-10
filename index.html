@@ -8,15 +8,31 @@
   <link href="css/default.css" rel="stylesheet">
 </head>
 <body>
+
+<div id="play-again" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Snyggt jobbat!</h4>
+      </div>
+      <div class="modal-body">Din tid blev: <span class="result">00:00:00</span></div>
+      <div class="modal-footer">
+        <button type="button" id="same-again" class="btn btn-primary">Spela igen?</button>
+        <button type="button" id="new-game" class="btn btn-info">Välj ny</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <h4 class="text-center header">Öva på gångertabellen</h4>
   <h1 class="text-center exercise bg-danger"></h1>
   <div class="wrapper startup-ui"></div>
   <div class="wrapper clearfix play-ui hidden">
-    <button type="button" class="btn btn-primary btn-0">0</button>
-    <button type="button" class="btn btn-primary btn-1">1</button>
-    <button type="button" class="btn btn-primary btn-2">2</button>
-    <button type="button" class="btn btn-primary btn-3">3</button>
-    <button type="button" class="btn btn-primary btn-4">4</button>
+    <button type="button" class="big btn btn-primary btn-0">0</button>
+    <button type="button" class="big btn btn-primary btn-1">1</button>
+    <button type="button" class="big btn btn-primary btn-2">2</button>
+    <button type="button" class="big btn btn-primary btn-3">3</button>
+    <button type="button" class="big btn btn-primary btn-4">4</button>
   </div>
   <div class="text-center result bg-success play-ui hidden">00:00:00</div>
   <script src="js/jquery.min.js"></script>
