@@ -205,26 +205,30 @@ $(document).ready(function() {
     return this;
   };
 
-  $('.choose').click(function(index) {
+  $('.choose').on('click', function(event) {
+    event.stopPropagation(); event.preventDefault();
     var val = $(this).html();
     initGame(val);
   });
 
   // Start on same level again button
-  $('#restart-game').click(function() {
+  $('#restart-game').on('click', function(event) {
+    event.stopPropagation(); event.preventDefault();
     hideModal();
     resetGame();
     initGame(multiplicand);
   });
 
   // Start new game button
-  $('#new-game').click(function() {
+  $('#new-game').on('click', function(event) {
+    event.stopPropagation(); event.preventDefault();
     hideModal();
     initialize();
   });
 
   // Logic for answer buttons
-  $('button').click(function() {
+  $('button').on('click', function(event) {
+    event.stopPropagation(); event.preventDefault();
     if(!finished) {
       if($(this).html() == theProduct) {
         newGame();
