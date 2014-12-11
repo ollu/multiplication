@@ -29,7 +29,7 @@ $(document).ready(function() {
     exerciseStart = new Date();
     exerciseStart = exerciseStart.getTime();
     resetGame();
-    timer = setInterval(function(){ startTimer() }, 10);
+    timer = setInterval(function(){ updateTimer() }, 10);
     newGame();
   }
 
@@ -76,22 +76,32 @@ $(document).ready(function() {
     return product;
   }
 
-  function startTimer() {
-    var exerciseEnd = new Date();
-    exerciseEnd = exerciseEnd.getTime();
+  function updateTimer() {
+    var timeSpent = getTimeSpent();
+    var result = convertTimeToString(timeSpent);
 
-    var d = exerciseEnd - exerciseStart;
-    d = new Date(d);
+    $('.result').html(result);
+  }
 
-    var minutes = '0' + d.getUTCMinutes();
-    var seconds = '0' + d.getUTCSeconds();
-    var hundredth = '0' + Math.floor(d.getUTCMilliseconds() / 10);
+  function convertTimeToString(timeSpent) {
+    var t = new Date(timeSpent);
+
+    var minutes = '0' + t.getUTCMinutes();
+    var seconds = '0' + t.getUTCSeconds();
+    var hundredth = '0' + Math.floor(t.getUTCMilliseconds() / 10);
 
     var result = minutes.slice(-2) + ':';
     result += seconds.slice(-2) + ':';
     result += hundredth.slice(-2);
 
-    $('.result').html(result);
+    return result;
+  }
+
+  function getTimeSpent() {
+    var exerciseEnd = new Date();
+    exerciseEnd = exerciseEnd.getTime();
+
+    return exerciseEnd - exerciseStart;
   }
 
   function resetGame() {
