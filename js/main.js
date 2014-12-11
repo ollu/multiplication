@@ -65,9 +65,20 @@ $(document).ready(function() {
   }
 
   function gameOver() {
+    var newTime = getTimeSpent();
+    var key = multiplicand;
+
+    setHighScore(key, newTime);
+
     showModal();
     stopTimer();
+
+    var highScore = getHighScore(key);
+    highScore = convertTimeToString(highScore);
+
+    $('.highScore').html(highScore);
     $('.exercise').html('Game Over!');
+
     finished = true;
   }
 
@@ -118,6 +129,34 @@ $(document).ready(function() {
       backdrop: 'static',
       keyboard: false
     });
+  }
+
+  Storage.prototype.setObject = function(key, value) {
+      this.setItem(key, JSON.stringify(value));
+  }
+
+  Storage.prototype.getObject = function(key) {
+      var value = this.getItem(key);
+      return value && JSON.parse(value);
+  }
+
+
+  function setHighScore(key, newTime) {
+    var bestTime = getHighScore(key);
+    if (bestTime) {
+      if ( newTime < bestTime ) {
+        console.log('New time: ' + newTime);
+        console.log('Best time: ' + bestTime);
+        localStorage.setObject(key, newTime);
+      }
+    }
+    else {
+      localStorage.setObject(key, newTime);
+    }
+  }
+
+  function getHighScore(key) {
+    return localStorage.getObject(key);
   }
 
   function hideModal() {
