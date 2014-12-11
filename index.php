@@ -25,7 +25,10 @@
       <div class="modal-header">
         <h4 class="modal-title">Snyggt jobbat!</h4>
       </div>
-      <div class="modal-body"><strong>Din tid blev:</strong> <span class="result">00:00:00</span></div>
+      <div class="modal-body">
+      <strong>Din tid blev:</strong> <span class="result"></span> <br />
+      <strong>Bästa tid:</strong> <span class="highScore"></span>
+      </div>
       <div class="modal-footer">
         <button type="button" id="restart-game" class="btn btn-primary">Igen!</button>
         <button type="button" id="new-game" class="btn btn-info">Välj en ny</button>
