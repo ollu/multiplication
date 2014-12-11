@@ -65,13 +65,13 @@ $(document).ready(function() {
   }
 
   function gameOver() {
+    stopTimer();
     var newTime = getTimeSpent();
     var key = multiplicand;
 
     setHighScore(key, newTime);
 
     showModal();
-    stopTimer();
 
     var highScore = getHighScore(key);
     highScore = convertTimeToString(highScore);
