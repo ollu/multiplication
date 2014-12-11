@@ -75,7 +75,9 @@ $(document).ready(function() {
 
     var highScore = getHighScore(key);
     highScore = convertTimeToString(highScore);
+    newTime = convertTimeToString(newTime);
 
+    $('.result').html(newTime);
     $('.highScore').html(highScore);
     $('.exercise').html('Game Over!');
 
