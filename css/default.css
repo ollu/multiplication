@@ -48,3 +48,13 @@ h1 {
 .big.btn:nth-child(3n) {
   margin-right: 0;
 }
+button.choose {
+  position: relative;
+}
+.best-time {
+  font-size: 40%;
+  padding-left: 10px;
+  background-image: url("../images/flag.png");
+  background-repeat: no-repeat;
+  background-position: 0px 3px;
+}

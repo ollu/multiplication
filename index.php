@@ -1,11 +1,11 @@
 <?php
   $images = array();
-  foreach (new DirectoryIterator('images') as $fileInfo) {
+  foreach (new DirectoryIterator('images/bg') as $fileInfo) {
     if($fileInfo->isDot()) continue;
     $images[] = $fileInfo->getFilename();
   }
   $image = $images[array_rand($images, 1)];
-  $background = 'background="images/' . $image . '"';
+  $background = 'background="images/bg/' . $image . '"';
 ?>
 
 <!DOCTYPE html>
@@ -40,15 +40,42 @@
   <h4 class="text-center header bg-danger">Öva på gångertabellen</h4>
   <h1 class="text-center exercise bg-danger"></h1>
   <div class="wrapper startup-ui">
-    <button type="button" class="big btn btn-default choose">1</button>
-    <button type="button" class="big btn btn-default choose">2</button>
-    <button type="button" class="big btn btn-default choose">3</button>
-    <button type="button" class="big btn btn-default choose">4</button>
-    <button type="button" class="big btn btn-default choose">5</button>
-    <button type="button" class="big btn btn-default choose">6</button>
-    <button type="button" class="big btn btn-default choose">7</button>
-    <button type="button" class="big btn btn-default choose">8</button>
-    <button type="button" class="big btn btn-default choose">9</button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>1</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>2</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>3</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>4</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>5</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>6</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>7</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>8</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
+    <button type="button" class="big btn btn-default choose">
+      <digit>9</digit>
+      <div class="best-time">00:00:00</div>
+    </button>
   </div>
   <div class="wrapper clearfix play-ui">
     <button type="button" class="big btn btn-primary btn-0">0</button>

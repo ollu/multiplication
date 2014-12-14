@@ -13,7 +13,7 @@ $(document).ready(function() {
     if ($(".startup-ui").hasClass("hidden")) {
       $(".startup-ui").removeClass("hidden");
     }
-
+    setBestTimeOnButton();
   }
 
   function initGame(multip) {
@@ -142,13 +142,19 @@ $(document).ready(function() {
       return value && JSON.parse(value);
   }
 
+  function setBestTimeOnButton() {
+    $('.choose').each(function(index) {
+      var bestTime = getHighScore($(this).find('digit').html());
+      bestTime = convertTimeToString(bestTime);
+      $(this).find('.best-time').html(bestTime);
+    });
+
+  }
 
   function setHighScore(key, newTime) {
     var bestTime = getHighScore(key);
     if (bestTime) {
       if ( newTime < bestTime ) {
-        console.log('New time: ' + newTime);
-        console.log('Best time: ' + bestTime);
         localStorage.setObject(key, newTime);
       }
     }
@@ -207,7 +213,8 @@ $(document).ready(function() {
 
   $('.choose').on('click', function(event) {
     event.stopPropagation(); event.preventDefault();
-    var val = $(this).html();
+    var val = $(this).find('digit').html();
+
     initGame(val);
   });
 
